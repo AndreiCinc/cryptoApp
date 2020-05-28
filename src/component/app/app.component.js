@@ -9,40 +9,64 @@ class App extends React.Component {
 		this.state = {
 			data : null,
 			checkData : false,
-		}
-		var boxNum = 2;
+			limit : ''
+		}	
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
 	}
-	getData = () => {
-		fetch('https://api.coinlore.net/api/tickers/?start=0&limit={boxNum}')
+	handleChange(event) {
+    	this.setState({limit: event.target.value});
+  	}
+  	handleSubmit(event) {
+    	this.getData();
+    	event.preventDefault();
+  	}
+	getData = ()  => {
+		fetch('https://api.coinlore.net/api/tickers/?limit=' + this.state.limit)
 		.then((response) => response.json())
-		.then((response) => {this.setState({data : response, checkData : true, boxNum : 2})});
+		.then((response) => {this.setState({data : response, checkData : true})});
 	}
 	componentDidMount = () => {
-	this.getData();
-	}
+		this.getData();
+	} 
 	displayCoins = () => {
 		return( 
-			this.state.data.data.map( (object, index) => (
-				<Card key = {index} symbol ={object.symbol} supply={object.tsupply} name={object.name} event={(e) => 
+			this.state.data.data.map((object, index) => (
+				<Card key = {index} symbol ={object.symbol} supply={object.tsupply} name={object.name} price={object.price_usd} event={(e) => 
 					this.viewDetails(object.id, e)}/>
-			))
+				)
+			)
 		);
 	}
-	viewDetails = (id) => {
+	viewDetails = (id) => { 
 		let i;
-		for(i = 0; i < this.boxNum; i++) {
+		for(i = 0; i < this.state.limit; i++) { 
 			if(this.state.data.data[i].id === id) {
-				alert('Market Cap: ' + this.state.data.data[i].market_cap_usd);
+				alert('Rank: ' + this.state.data.data[i].rank + 
+					 "\n 1h ($):  " + this.state.data.data[i].percent_change_1h + ' %' +
+					 "\n 24h($):  " + this.state.data.data[i].percent_change_24h + ' %' +
+					 "\n 7d ($):  " + this.state.data.data[i].percent_change_7d + ' %' +
+					 "\n Market Cap($): " + this.state.data.data[i].market_cap_usd
+					 );
 			}
 		}
+	}
+	search(){
+		return (
+	    <form onSubmit={this.handleSubmit}>
+		    <label>
+			    <input type="text" value={this.state.limit} placeholder="Insert a Top & Press Enter" onChange={this.handleChange} />
+		    </label>
+	    </form>
+	    )
 	}
 	render(){
 		console.log(this.state.data);
 		if(this.state.checkData){
 			return(
-			<div className="App">
+			<div className="App"> 
 				<Title />
-
+				{this.search()}
 				<div className="coins">
 				{this.displayCoins()}
 				</div>
