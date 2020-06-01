@@ -10,7 +10,8 @@ body{
   border-radius: 15px;
 }
 
-.App .coins{
+.App .coins
+{
   height:685px;
   overflow: auto;
 }
