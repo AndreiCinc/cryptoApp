@@ -2,7 +2,7 @@
 	width: 500px;
  	height: 720px;
 	border-image-outset: 100px;
-	background: url('./img/BackgroundGif.jpg');
+	background: url('./img/Background.jpg');
 	background-position: center;
 }
 .welcome {
