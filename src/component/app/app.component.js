@@ -2,7 +2,6 @@ import React from 'react';
 import './app.style.css';
 import Title from '../title/title.component';
 import Card from '../card/card.component';
-import Welcome from '../welcome/welcome.component';
 
 class App extends React.Component {
 	constructor(props){
@@ -11,7 +10,16 @@ class App extends React.Component {
 			data : null,
 			checkData : false,
 			limit : ''
-		}	
+		}
+		this.handleSubmit = this.handleSubmit.bind(this);
+		this.handleChange = this.handleChange.bind(this);	
+	}
+	handleChange = (event) => {
+		this.setState({limit : event.target.value});
+	}
+	handleSubmit = (event) => {
+		this.getData();
+		event.preventDefault();
 	}
 	getData = ()  => {
 			fetch('https://api.coinlore.net/api/tickers/?limit=' + this.state.limit)
@@ -19,9 +27,8 @@ class App extends React.Component {
 			.then((response) => {this.setState({data : response, checkData : true})});
 	}
 	componentDidMount = () => {
-			this.getData();
-		} 
-
+		this.getData();
+	} 
 	displayCoins = () => {
 		return( 
 			this.state.data.data.map((object, index) => (
@@ -44,27 +51,31 @@ class App extends React.Component {
 			}
 		}
 	}
+	top = () =>{
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<label >
+					<input className="top" type="text"
+					placeholder="Insert a Top & Press Enter"  onChange={this.handleChange} />
+				</label>
+			</form>
+		)
+	}
 	render(){
 		console.log(this.state.data);
-		if(this.state.checkData && this.state.limit){
+		if (this.state.checkData){
 			return(
-			<div className="App"> 
-				<Title />
-				<div className="coins">
-				{this.displayCoins()}
+				<div className="App"> 
+					<Title />
+					{this.top()}
+					<div className="coins">
+					{this.displayCoins()}
+					</div>
 				</div>
-			</div>
-			)
-		}else if (this.state.limit === '' && this.state.checkData) {
-			return(
-			<div className="App"> 
-				<Title />
-				<Welcome />
-			</div>
 			);
 		}else {
 			return(
-			<div>Loading</div>
+				<div>Loading</div>
 			)
 		}
 	}

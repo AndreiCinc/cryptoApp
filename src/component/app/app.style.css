@@ -10,6 +10,13 @@ body{
   border-radius: 15px;
 }
 
+.App .top
+{
+  width: 155px;
+  margin-left: 160px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
 .App .coins
 {
   height:685px;
