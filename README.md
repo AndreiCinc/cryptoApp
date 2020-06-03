@@ -1,6 +1,6 @@
 <font size="4">
 <h1>Crypto App</h1>
----------------------------------------------------------------------
+---
 
 <strong>Crypto App</strong> is an web app based on SPA built up on [React JS](https://reactjs.org/) components and it get the rank of cryptocurrency.
 
@@ -47,11 +47,10 @@ Using a <a href="https://infinityfree.net/">host</a> <a href="CryptoApp.epizy.co
 
 <h2>Quick Overview</h2>
 
-<code>	
-      npx create-react-app my-app
-</br> cd my-app
-<br>  npm start
-</code>
+<pre>     npx create-react-app my-app
+     cd my-app
+     npm start
+</pre>
 
 If you previously installed `create-react-app` globally via `npm install -g create-react-app`, it is recommended to uninstall the package using `npm uninstall -g create-react-app` to ensure that npx always uses the latest version. 
 
