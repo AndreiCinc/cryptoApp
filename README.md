@@ -6,21 +6,24 @@
 
 [The app](CryptoApp.epizy.com) shows the most wanted 100 cripto coins that are on the market.
 
-<div style="text-align: center"> <img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/100Cards.gif" width="240" height="300">
+<div style="text-align: center"> 
+<img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/100Cards.gif">
 </div>
 
 <br>
 	It contains cards which has a name, main details and you will see more details about coins pushing a button.
 </br>
 
-<div style="text-align: center"><img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/topButton.gif"  width="240" height="300">
+<div style="text-align: center">
+<img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/topButton.gif">
 </div> 
 
 <br>
 	Using the top button, you can insert a number, from 1 to 100, wich means the ranking you want to see on this app.
 </br>
 
-<div style="text-align: center"><img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/details.gif"width="240" height="300">
+<div style="text-align: center">
+<img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/details.gif">
 </div> 
 
 <br>
@@ -31,16 +34,18 @@ Using a <a href="https://infinityfree.net/">host</a> <a href="CryptoApp.epizy.co
 
 <h1>Techs</h1>
 
-<li>[**React JS**](https://reactjs.org/)</li>
-<li>[**JavaScript**](https://www.javascript.com/)</li>
-<li>[**CSS**](https://www.w3schools.com/css/)</li>
-<li>[**HTML**](https://html.com/)</li>
-<li>[**Git**](https://git-scm.com/)</li>
-<li>[**npm & npx**](https://www.npmjs.com/get-npm)</li>
+<strong>
+<li><a href="https://reactjs.org/">React Js</a></li>
+<li><a href="https://www.javascript.com/">JavaScript</a></li>
+<li><a href="https://www.w3schools.com/css">CSS</a></li>
+<li><a href="https://html.com/">HTML</a></li>
+<li><a href="https://git-scm.com/">Git</a></li>
+<li><a href="https://www.npmjs.com/get-npm">npm & npx</a></li>
+</strong>
 
 <h1>Installation</h1>
 
-<h3>Quick Overview</h3>
+<h2>Quick Overview</h2>
 
 <code>	
       npx create-react-app my-app
@@ -50,12 +55,13 @@ Using a <a href="https://infinityfree.net/">host</a> <a href="CryptoApp.epizy.co
 
 If you previously installed `create-react-app` globally via `npm install -g create-react-app`, it is recommended to uninstall the package using `npm uninstall -g create-react-app` to ensure that npx always uses the latest version. 
 
-<div style="text-align: center"><img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/installGif.gif" width="400" height="300">
+<div style="text-align: center">
+<img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/installGif.gif">
 </div> 
 
 When you are ready to deploy to production, create a minified bundle with `npm run build`.
 
-<h3>Get Started</h3>
+<h2>Get Started</h2>
 
 You don`t need to install or configure tools like webpack or Babel.
 They are preconfigured and hidden so that you can focus on the code
