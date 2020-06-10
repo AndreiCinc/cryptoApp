@@ -1,20 +1,37 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './card.style.css';
+import Converter from './converter/converter.component';
+import Modal from '../modal/modal.component';
+import NumberFormat from 'react-number-format'; 
 
-class Card extends React.Component{
-	render(){
-		return(
-			<div className="card">
-				<div className="symbol gold">{this.props.symbol}</div>
-				<div className="info">
-					<div className="name">{this.props.name}</div>
-					<div className="supply">Supply : {this.props.supply}</div>
-					<div className="price">1$ = {this.props.price}</div>
-				</div>
-				<div className="button" onClick={this.props.event}>Details</div>
-			</div>
-		)
+export default function Card (props) {
+
+	const [open, setOpen] = useState(false);
+
+	const handlerClick = (e) => {
+		setOpen(!open);
+		props.openData();
 	}
-}
+	const currencyFormat = () => {
+		return (
+			<NumberFormat 	value={props.price} 
+							displayType={'text'}
+							prefix={'$'} 
+							thousandSeparator={true} 
+			/>
+		);
+	}
 
-export default Card;
+	return(
+		<div className="card">
+			<div className="symbol gold">{props.symbol}</div>
+			<div className="info">
+				<div className="name">{props.name}</div>
+				<div className="price">1 {props.symbol} = {currencyFormat()}</div>
+				<Converter value={'2'}/>
+				<Modal onClose={handlerClick} value={open} />
+			</div>
+			<div className="button" onClick={handlerClick}>Details</div>
+		</div>
+	);
+}
