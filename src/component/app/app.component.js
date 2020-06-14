@@ -9,7 +9,7 @@ class App extends React.Component {
 		this.state = {
 			data : null,
 			checkData : false,
-			limit : ''
+
 		}
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);	
@@ -40,7 +40,7 @@ class App extends React.Component {
 	}
 	viewDetails = (id) => { 
 		let i;
-		for(i = 0; i < this.state.limit; i++) { 
+		for(i = 0; i < 100; i++) { 
 			if(this.state.data.data[i].id === id) {
 				alert('Rank: ' + this.state.data.data[i].rank + 
 					 "\n 1h ($):  " + this.state.data.data[i].percent_change_1h + ' %' +
