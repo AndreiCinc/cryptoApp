@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {createContext} from 'react';
 import Card from '../component/card/card.component';
 
+export const DataContext = createContext(); 
 
-export default class Data extends React.Component{
+export default class DataProvider extends React.Component{
 	constructor(props) {
 		super(props)
 		this.state = {
@@ -19,30 +20,16 @@ export default class Data extends React.Component{
 			.then((response) => {this.setState({data : response, checkData : true})});
 	}
 
-	cardDetails = () => {
-		return (
-			this.state.data.data.map((object, index) => (
-				<Card 	key={index} 
-						price={object.price_usd} 
-						symbol={object.symbol}
-						name={object.name}
-						openData={this.setData}
-				/>
-			))
-		);
-	}
-
 	setData = () => { 
 		this.props.setData(this.state.data);
-	}
-
-	render () {
-		if (this.state.checkData) {
-			console.log(this.state.data);
-			return (
-				<div> 
-					{this.cardDetails()}
-				</div>
+	} 
+	
+	render = () => {
+		if (this.state.data) {
+			return(
+				<DataContext.Provider value={this.state.data}>
+					{this.props.children}
+				</DataContext.Provider>
 			);
 		}
 		return null;

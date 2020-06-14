@@ -1,6 +1,5 @@
 import React, {useState, useContext} from 'react';
 import Modal from 'react-modal';
-import Context from './context.component';
  
 const customStyles = {
   content : {
@@ -16,7 +15,6 @@ const customStyles = {
 export default function App(props){
 
   const [modalIsOpen, setIsOpen] = useState(false);
-  let details = React.useContext(Context);
 
   function openModal() {
     setIsOpen(true);
@@ -38,9 +36,9 @@ export default function App(props){
         contentLabel="Example Modal"
        >
  
-        <h2>{details.value}</h2>
+        <h2>Name</h2>
        
-        <div>bam</div>
+        <div></div>
         <div>Details1</div>
         <div>Details1</div>
         <button onClick={e => {onClose(e);}}>close</button>

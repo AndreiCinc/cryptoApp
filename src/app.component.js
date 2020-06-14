@@ -2,9 +2,8 @@ import React from 'react';
 import './app.style.css';
 import Title from './component/title/title.component';
 import Card from './component/card/card.component';
-import Data from './data/getData.component';
-import ContextDetails from './component/modal/context.component';
-import Modal from './component/modal/modal.component';
+import DataProvider from './data/getData.component';
+
 
 class App extends React.Component {
 	constructor(props) {
@@ -22,22 +21,18 @@ class App extends React.Component {
 		//alert(this.state.data.data);
 	}
 
-	sendContext = () => {
-		return (
-		<ContextDetails.Provider value={{data : this.state.data}} >
-		<Modal />
-		</ContextDetails.Provider>
 
-		)
-	}
 
 	render(){
 		return(
 			<div className='App'>
+			<DataProvider>
 				<Title />
 				<div className='coins'>
-				<Data setData={this.setData}/>
+				<DataProvider setData={this.setData}/>
+				<Card />
 				</div>
+			</DataProvider>
 			</div>
 		);
 	}
