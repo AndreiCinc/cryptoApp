@@ -1,8 +1,5 @@
-import React, {createContext} from 'react';
+import React from 'react';
 import Card from '../component/card/card.component';
-import  SetModal from '../component/modal/modal.component'
-
-export const DataContext = createContext(); 
 
 export default class DataProvider extends React.Component{
 
@@ -19,22 +16,21 @@ export default class DataProvider extends React.Component{
 			.then((response) => response.json())
 			.then((response) => {this.setState({data : response, checkData : true})});
 	}
-
 	sendDetailsToCoins = () => {
 		return (
 			this.state.data.data.map((object, index) => {
 				return (
-					<Card 	key={index}
-							symbol={object.symbol}
-							name={object.name}
-							price={object.price_usd}
-							market_cap={object.market_cap_usd}
-							percent_1h={object.percent_change_1h}
-							percent_7d={object.percent_change_7d}
-							percent_24h={object.percent_change_24h}
-							supply={object.tsupply}
-							rank={object.rank}
-							
+					<Card 	
+						key={index}
+						symbol={object.symbol}
+						name={object.name}
+						price={object.price_usd}
+						market_cap={object.market_cap_usd}
+						percent_1h={object.percent_change_1h}
+						percent_7d={object.percent_change_7d}
+						percent_24h={object.percent_change_24h}
+						supply={object.tsupply}
+						rank={object.rank}		
 					/>
 				);
 			})

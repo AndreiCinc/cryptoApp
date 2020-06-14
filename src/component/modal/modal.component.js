@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 import NumberFormat from 'react-number-format'; 
  
@@ -14,12 +14,6 @@ const customStyles = {
 };
  
 export default function SetModal(props) {
-
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  function openModal() {
-    setIsOpen(true);
-  }
   
   function onClose (e) {
     props.onClose && props.onClose(e);
@@ -50,7 +44,7 @@ export default function SetModal(props) {
   return (
     <div>
       <Modal
-        isOpen={openModal}
+        isOpen={true}
         onRequestClose={onClose}
         style={customStyles}
         contentLabel="Example Modal"

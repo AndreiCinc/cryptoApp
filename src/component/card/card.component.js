@@ -13,10 +13,11 @@ export default function Card (props) {
 	}
 	const currencyFormat = () => {
 		return (
-			<NumberFormat 	value={props.price} 
-							displayType={'text'}
-							prefix={'$'} 
-							thousandSeparator={true} 
+			<NumberFormat 	
+				value={props.price} 
+				displayType={'text'}
+				prefix={'$'} 
+				thousandSeparator={true} 
 			/>
 		);
 	}
@@ -27,18 +28,18 @@ export default function Card (props) {
 					<div className="name">{props.name}</div>
 					<div className="price">1 {props.symbol} = {currencyFormat()}</div>
 					<Converter value={'2'}/>
-					<SetModal 
-						onClose={handlerClick}
-						value={open} 
-						name={props.name}
-						rank={props.rank}
-						market_cap={props.market_cap}
-						percent_1h={props.percent_1h}
-						percent_7d={props.percent_7d}
-						percent_24h={props.percent_24h}
-						supply={props.supply}
-					/>
 				</div>
+				<SetModal 
+					onClose={handlerClick}
+					value={open} 
+					name={props.name}
+					rank={props.rank}
+					market_cap={props.market_cap}
+					percent_1h={props.percent_1h}
+					percent_7d={props.percent_7d}
+					percent_24h={props.percent_24h}
+					supply={props.supply}
+				/>
 				<div className="button" onClick={handlerClick}>Details</div>
 		</div>
 	);

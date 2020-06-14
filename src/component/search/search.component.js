@@ -5,7 +5,6 @@ export default function Search () {
 	const searching = () => {
 		
 	}
-
 	return (
 		<div className="search">
 			<input type="text" title="Are you looking for a specific coin?"/>
