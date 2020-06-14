@@ -1,5 +1,6 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import Modal from 'react-modal';
+import NumberFormat from 'react-number-format'; 
  
 const customStyles = {
   content : {
@@ -12,7 +13,7 @@ const customStyles = {
   }
 };
  
-export default function App(props){
+export default function SetModal(props) {
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -23,7 +24,26 @@ export default function App(props){
   function onClose (e) {
     props.onClose && props.onClose(e);
   }
-
+  const marketCapFormat = () => {
+    return (
+      <NumberFormat   
+        value={props.market_cap} 
+        displayType={'text'}
+        prefix={'$'} 
+        thousandSeparator={true} 
+      />
+    );
+  }
+  const supplyFormat = () => {
+    return (
+      <NumberFormat   
+        value={props.supply} 
+        displayType={'text'}
+        prefix={'$'} 
+        thousandSeparator={true} 
+      />
+    );
+  }
   if (!props.value) {
     return null;
   }
@@ -34,13 +54,14 @@ export default function App(props){
         onRequestClose={onClose}
         style={customStyles}
         contentLabel="Example Modal"
-       >
- 
-        <h2>Name</h2>
-       
-        <div></div>
-        <div>Details1</div>
-        <div>Details1</div>
+      >
+        <h2>{props.name}</h2>
+        <div>Rank: {props.rank}</div>
+        <div>Market Cap: {marketCapFormat()}</div>
+        <div>Value 1h : {props.percent_1h}</div>
+        <div>Value 24h : {props.percent_24h}</div>
+        <div>Value 7d : {props.percent_7d}</div>
+        <div>Supply : {supplyFormat()}</div>
         <button onClick={e => {onClose(e);}}>close</button>
       </Modal>
     </div>

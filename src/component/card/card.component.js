@@ -1,52 +1,43 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState} from 'react';
 import './card.style.css';
 import Converter from './converter/converter.component';
-import Modal from '../modal/modal.component';
+import SetModal from '../modal/modal.component';
 import NumberFormat from 'react-number-format'; 
-import DataProvider from '../../data/getData.component';
 
 export default function Card (props) {
 
 	const [open, setOpen] = useState(false);
-  	const [data, setData] = useState('12-06-2020');
-	const [symbol, setSymbol] = useState('mai');
-	const [name, setName] = useState(null);
-	const [price, setPrice] = useState(null);
-	const [key, setKey] = useState(null);
 
-	const detailsContext = useContext(DataProvider);
-
-	const details = detailsContext => {
-		return detailsContext.data.map((object, index) => {
-		})
-	}
 	const handlerClick = e => {
 		setOpen(!open);
-		setData(props.data);
 	}
 	const currencyFormat = () => {
 		return (
-			<NumberFormat 	value={price} 
+			<NumberFormat 	value={props.price} 
 							displayType={'text'}
 							prefix={'$'} 
 							thousandSeparator={true} 
 			/>
 		);
 	}
-	useEffect(() => {
-		fetch('https://api.coinlore.net/api/tickers/?')
-			.then((response) => response.json())
-			.then((response) => {setData(response)});
-		setSymbol(data.symbol);
-	})
 	return (
 		<div className="card">
-			<div className="symbol gold">{symbol}</div>
+			<div className="symbol gold">{props.symbol}</div>
 				<div className="info">
-					<div className="name">{name}</div>
-					<div className="price">1 {symbol} = {currencyFormat()}</div>
+					<div className="name">{props.name}</div>
+					<div className="price">1 {props.symbol} = {currencyFormat()}</div>
 					<Converter value={'2'}/>
-					<Modal onClose={handlerClick} value={open} />
+					<SetModal 
+						onClose={handlerClick}
+						value={open} 
+						name={props.name}
+						rank={props.rank}
+						market_cap={props.market_cap}
+						percent_1h={props.percent_1h}
+						percent_7d={props.percent_7d}
+						percent_24h={props.percent_24h}
+						supply={props.supply}
+					/>
 				</div>
 				<div className="button" onClick={handlerClick}>Details</div>
 		</div>
