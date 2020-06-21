@@ -1,5 +1,4 @@
 import React from 'react';
-import Search from '../search/search.component';
 import './title.style.css';
 
 class Title extends React.Component {
@@ -7,7 +6,6 @@ class Title extends React.Component {
 		return(
 			<div>
 			<h1>Crypto App</h1>
-			<Search />
 			</div>
 		);
 	}

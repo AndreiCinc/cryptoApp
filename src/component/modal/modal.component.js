@@ -1,6 +1,9 @@
 import React from 'react';
 import Modal from 'react-modal';
-import NumberFormat from 'react-number-format'; 
+import './modal.style.css';
+import greenArrowLogo from './greenArrow.png';
+import redArrowLogo from './redArrow.png'; 
+import NumberFormat from 'react-number-format';
  
 const customStyles = {
   content : {
@@ -12,7 +15,6 @@ const customStyles = {
     transform             : 'translate(-50%, -50%)'
   }
 };
- 
 export default function SetModal(props) {
   
   function onClose (e) {
@@ -38,6 +40,39 @@ export default function SetModal(props) {
       />
     );
   }
+  
+  const arrowPercent1h = () => {
+    if (props.percent_1h < 0)  {
+      return (
+        <img src={redArrowLogo} alt="Logo" width="10" height="17"/>
+        );
+    }
+    return(
+      <img src={greenArrowLogo} alt="Logo" width="10" height="17"/>
+        );
+  }
+
+  const arrowPercent24h = () => {
+     if (props.percent_24h < 0)  {
+      return (
+        <img src={redArrowLogo} alt="Logo" width="10" height="17"/>
+        );
+    }
+    return(
+      <img src={greenArrowLogo} alt="Logo" width="10" height="17"/>
+        );
+  }
+
+   const arrowPercent7d = () => {
+     if (props.percent_24h < 0)  {
+      return (
+        <img src={redArrowLogo} alt="Logo" width="10" height="17"/>
+        );
+    }
+      return(
+      <img src={greenArrowLogo} alt="Logo" width="10" height="17"/>
+        );
+  }
   if (!props.value) {
     return null;
   }
@@ -47,16 +82,17 @@ export default function SetModal(props) {
         isOpen={true}
         onRequestClose={onClose}
         style={customStyles}
-        contentLabel="Example Modal"
       >
-        <h2>{props.name}</h2>
-        <div>Rank: {props.rank}</div>
-        <div>Market Cap: {marketCapFormat()}</div>
-        <div>Value 1h : {props.percent_1h}</div>
-        <div>Value 24h : {props.percent_24h}</div>
-        <div>Value 7d : {props.percent_7d}</div>
-        <div>Supply : {supplyFormat()}</div>
-        <button onClick={e => {onClose(e);}}>close</button>
+       <button className={"closeButton"} onClick={e => {onClose(e);}}>X</button>
+        <h2 className={"name"}>{props.name}</h2>
+        <p className={"rank"}>Rank: {props.rank}</p>
+        <p className={"marketCap"}>Market Cap: {marketCapFormat()}</p>
+        <div className={"percent"}>
+          <p>Value 1h : {props.percent_1h} {arrowPercent1h()}</p> 
+          <p>Value 24h : {props.percent_24h} {arrowPercent24h()} </p>
+          <p>Value 7d : {props.percent_7d} {arrowPercent7d()} </p>
+        </div>
+        <div className={"supply"}>Supply : {supplyFormat()}</div>
       </Modal>
     </div>
   );

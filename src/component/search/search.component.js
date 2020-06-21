@@ -1,14 +1,16 @@
 import React from 'react';
+import './search.style.css';
 
-export default function Search () {
+export default function Search (props) {
 
-	const searching = () => {
-		
-	}
 	return (
-		<div className="search">
-			<input type="text" title="Are you looking for a specific coin?"/>
-			<button className="button" onClick={searching}>Search</button>
-		</div>
+		
+			<input className="input"
+				
+				type="text"
+				placeholder="Search..." 
+				title="Are you looking for a specific coin?"
+				onChange={(e) => {props.handlerInput(e.target.value)}}/>
+	
 	);
 }
