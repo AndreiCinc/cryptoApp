@@ -13,11 +13,10 @@
 }
 
 .card .symbol{
-	width: 10vh;
+	width: 74px;
   border-radius: 100px;
-  height: 8vh;
+  height: 74px;
   border: 1px solid #aaa;
-  width: 8vh;
   font-size: 18px;
   display: flex;
   align-items: center;
