@@ -11,7 +11,7 @@
 </div>
 
 <br>
-	It contains cards which has on the name, the price, a converter from dollars to coin and details button which show more details about market. 
+	It contains cards which has the name on, the price, a converter from dollars to coin and a "details" button which shows more  about the market. 
 </br>
 
 <div style="text-align: center">
@@ -19,7 +19,7 @@
 </div> 
 
 <br>
-	There it is an search box where you can insert the name of coin that you are looking for and the app will show you that coin or those coins whose name include the caracter you entered.
+	There is a search box where you can insert the name of the coin that you are looking for and the app will show you that coin or those coins whose name include the caracter you entered.
 </br>
 
 <div style="text-align: center">
