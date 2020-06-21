@@ -1,0 +1,30 @@
+.name {
+	position: center;
+}
+
+.closeButton {
+  background-image: url('coinExit.img.jpg');
+  color: #a8760b;
+  background-position: center;
+  padding: 10px;
+  border: 0px;
+  float: right;
+  font-size: 20px;
+  font-weight: bold;
+}
+@keyframes customEnterAnimation {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes customLeaveAnimation {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
