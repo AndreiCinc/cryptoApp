@@ -30,7 +30,7 @@
 	By using details button you will see the news about the market and in which direction the coin is heading.
 </br>
 
-Using a <a href="https://infinityfree.net/">host</a> <a href="CryptoApp.epizy.com">the app</a> can be used in real time by anyone you want.
+Using a <a href="https://infinityfree.net/">host, </a> <a href="CryptoApp.epizy.com">the app</a> can be used in real time by anyone you want.
 
 <h1>Techs</h1>
 
