@@ -64,7 +64,7 @@ export default function SetModal(props) {
   }
 
    const arrowPercent7d = () => {
-     if (props.percent_24h < 0)  {
+     if (props.percent_7d < 0)  {
       return (
         <img src={redArrowLogo} alt="Logo" width="10" height="17"/>
         );
