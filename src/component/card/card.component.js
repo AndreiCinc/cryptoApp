@@ -27,7 +27,7 @@ export default function Card (props) {
 				<div className="info">
 					<div className="name">{props.name}</div>
 					<div className="price">1 {props.symbol} = {currencyFormat()}</div>
-					<Converter value={'2'}/>
+					<Converter value={props.price} symbol={props.symbol}/>
 				</div>
 				<SetModal 
 					onClose={handlerClick}

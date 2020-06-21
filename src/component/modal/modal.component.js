@@ -83,7 +83,7 @@ export default function SetModal(props) {
         onRequestClose={onClose}
         style={customStyles}
       >
-       <button className={"closeButton"} onClick={e => {onClose(e);}}>X</button>
+       <button className={"closeButton"} onClick={e => {onClose(e)}}>X</button>
         <h2 className={"name"}>{props.name}</h2>
         <p className={"rank"}>Rank: {props.rank}</p>
         <p className={"marketCap"}>Market Cap: {marketCapFormat()}</p>
