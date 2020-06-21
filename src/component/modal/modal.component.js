@@ -1,8 +1,8 @@
 import React from 'react';
 import Modal from 'react-modal';
 import './modal.style.css';
-import greenArrowLogo from './greenArrow.png';
-import redArrowLogo from './redArrow.png'; 
+import greenArrowLogo from './greenArrow.img.png';
+import redArrowLogo from './redArrow.img.png'; 
 import NumberFormat from 'react-number-format';
  
 const customStyles = {

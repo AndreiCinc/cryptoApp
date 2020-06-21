@@ -9,8 +9,8 @@ export default function Converter (props) {
 			<input 
 				style={{width : '40px', height : '15px'}} 
 				placeholder= {props.value}
-				onChange={(e) => {setResult(e.target.value / props.value)}} /> 
-			<label>  = {result.toFixed(5)} {props.symbol}</label>
+				onChange={(e) => {setResult((e.target.value / props.value).toFixed(5))}} /> 
+			<label>  $ = {result} {props.symbol}</label>
 		</div>
 	);
 }
