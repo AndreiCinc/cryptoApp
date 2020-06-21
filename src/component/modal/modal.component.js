@@ -89,7 +89,7 @@ export default function SetModal(props) {
         <p className={"marketCap"}>Market Cap: {marketCapFormat()}</p>
         <div className={"percent"}>
           <p>Value 1h : {props.percent_1h} {arrowPercent1h()}</p> 
-          <p>Value 24h : {props.percent_24h}     {arrowPercent24h()} </p>
+          <p>Value 24h : {props.percent_24h} {arrowPercent24h()} </p>
           <p>Value 7d : {props.percent_7d}  {arrowPercent7d()} </p>
         </div>
         <div className={"supply"}>Supply : {supplyFormat()}</div>

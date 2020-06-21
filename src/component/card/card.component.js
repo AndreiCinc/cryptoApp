@@ -40,7 +40,7 @@ export default function Card (props) {
 					percent_24h={props.percent_24h}
 					supply={props.supply}
 				/>
-				<div className="button" onClick={handlerClick}>Details</div>
+			<div className="button" onClick={handlerClick}>Details</div>
 		</div>
 	);
 }
