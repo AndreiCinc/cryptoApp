@@ -1,24 +1,35 @@
 import React from 'react';
 import Card from '../component/card/card.component';
+import Search from '../component/search/search.component'
 
-export default class DataProvider extends React.Component{
+export default class DataProvider extends React.PureComponent{
 
 	constructor(props) {
 		super(props)
 		this.state = {
 			data : null,
 			checkData : false,
+			dataFiltered : [],
+			inputQuery : ''
 		}
-		this.setData = this.setData.bind(this);
+		this.setInput = this.setInput.bind(this);
 	}
 	componentDidMount = () => {
 		fetch('https://api.coinlore.net/api/tickers/?')
 			.then((response) => response.json())
-			.then((response) => {this.setState({data : response, checkData : true})});
+			.then((response) => {this.setState({data : response, checkData : true})})
+			.then(() => {this.filterCoins()});
 	}
-	sendDetailsToCoins = () => {
+	filterCoins = () => { 
+		this.setState({dataFiltered: this.state.data.data.filter(
+			data => { return data.nameid.toLowerCase().includes(this.state.inputQuery.toLowerCase());
+				}
+			)}
+		);
+	}
+	viewDetails = () => {
 		return (
-			this.state.data.data.map((object, index) => {
+			this.state.dataFiltered.map((object, index) => {
 				return (
 					<Card 	
 						key={index}
@@ -36,14 +47,23 @@ export default class DataProvider extends React.Component{
 			})
 		);
 	}
-	setData = () => { 
-		this.props.setData(this.state.data);
-	} 
+	setInput = async (input) => {
+		await this.setState({inputQuery: input})
+		this.filterCoins();
+		console.log(this.state.inputQuery);
+	}
 	render = () => {
 		if (this.state.data) {
 			console.log(this.state.data)
 			return(
-				this.sendDetailsToCoins()
+				<>
+				<Search 
+					handlerInput={this.setInput}
+					input={this.state.inputQuery}
+					filter={this.filterCoins}
+				/>
+				{this.viewDetails()}
+				</>
 			);
 		}
 		return(
