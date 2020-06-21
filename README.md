@@ -2,32 +2,32 @@
 <h1>Crypto App</h1>
 ---
 
-<strong>Crypto App</strong> is an web app based on SPA built up on [React JS](https://reactjs.org/) components and it get the rank of cryptocurrency.
+<strong>Crypto App</strong> is an web app built up using [React JS](https://reactjs.org/) components. 
 
-[The app](CryptoApp.epizy.com) shows the most wanted 100 cripto coins that are on the market.
+[The app](CryptoApp.epizy.com) shows the top 100 crypto coins that are on the market and details like market cap, supply, price, rank and the changes on market.
 
 <div style="text-align: center"> 
-<img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/100Cards.gif">
+<img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/listOfCoins.gif">
 </div>
 
 <br>
-	It contains cards which has a name, main details and you will see more details about coins pushing a button.
+	It contains cards which has on the name, the price, a converter from dollars to coin and details button which show more details about market. 
 </br>
 
 <div style="text-align: center">
-<img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/topButton.gif">
+<img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/SearchButton.gif">
 </div> 
 
 <br>
-	Using the top button, you can insert a number, from 1 to 100, wich means the ranking you want to see on this app.
+	There it is an search box where you can insert the name of coin that you are looking for and the app will show you that coin or those coins whose name include the caracter you entered.
 </br>
 
 <div style="text-align: center">
-<img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/details.gif">
+<img src="https://github.com/AndreiCinc/cryptoApp/blob/master/public/img/Modal.gif">
 </div> 
 
 <br>
-	By entering a rank and clicking on "Details" button you will see details about the coin like rank, percentage (1h/24h/7d) and market cap.
+	By using details button you will see the news about the market and in which direction the coin is heading.
 </br>
 
 Using a <a href="https://infinityfree.net/">host</a> <a href="CryptoApp.epizy.com">the app</a> can be used in real time by anyone you want.
